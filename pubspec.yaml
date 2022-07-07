@@ -1,0 +1,52 @@
+name: sqlite_mock
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+## Slidy Scripts
+vars:
+  clean: flutter clean
+  get: flutter pub get
+  runner: flutter pub run build_runner
+scripts:
+  mobx_build: $runner build
+  mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
+  mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_modular:
+  mobx:
+  flutter_mobx:
+  dio: ^4.0.6
+  sqflite:
+  path:
+  path_provider:
+  hive:
+  hive_flutter:
+    git:
+      url: https://github.com/hivedb/hive.git
+      path: hive_flutter
+
+dependency_overrides:
+  path: 1.8.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+  mobx_codegen:
+  modular_test:
+  build_runner: ^2.1.8
+
+flutter:
+  uses-material-design: true
